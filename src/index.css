@@ -1,0 +1,119 @@
+.chatBtn {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    z-index: 100;
+}
+
+.chatBtn button {
+    width: 50px;
+    background-color: #FE8D00;
+    border: none;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.chatbox {
+    position: fixed;
+    z-index: 100;
+    right: 5%;
+    bottom: 8%;
+}
+
+.chatbox .input {
+    position: sticky;
+    bottom: 0;
+}
+
+.chatbox .input .type {
+    width: 85%;
+    position: relative;
+}
+
+.chatbox .input .type input {
+    width: 100%;
+    background-color: #131515;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: white;
+    margin: 10px;
+}
+
+.chatbox .input .type i {
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    position: absolute;
+}
+
+.card-body {
+    overflow: auto;
+}
+
+.mic {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-10%, -50%);
+    cursor: pointer;
+    height: 3vw;
+    width: 3vw;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: #FE8D00;
+}
+
+
+/* loading */
+
+
+.container {
+    display: flex;
+    column-gap: 20px;
+}
+
+.container .dot {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    animation: loading 1s infinite alternate;
+}
+
+.container .dot:nth-child(1) {
+    background-color: #4285f4;
+    animation-delay: -0.25s;
+}
+
+.container .dot:nth-child(2) {
+    background-color: #ea4335;
+    animation-delay: -0.5s;
+}
+
+.container .dot:nth-child(3) {
+    background-color: #fbbc05;
+    animation-delay: -0.75s;
+}
+
+.container .dot:nth-child(4) {
+    background-color: #34a853;
+    animation-delay: -1s;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+/* loading */
