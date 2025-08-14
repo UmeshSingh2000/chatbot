@@ -1,0 +1,13 @@
+.button{
+    background-color: transparent;
+    color: black;
+    box-shadow: none;
+    cursor: pointer;
+    padding: 30px 60px;
+    border-radius: 0px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    &:hover{
+        background-color: transparent;
+    }
+}
