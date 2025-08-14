@@ -23,7 +23,7 @@ const page = () => {
             </div>
           </header>
           <section className=''>
-            {activePage === 'signin' ? <Signin /> : <Signup />}
+            {activePage === 'signin' ? <Signin /> : <Signup onSuccess={setActivePage} />}
           </section>
         </div>
       </main>
