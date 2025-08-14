@@ -1,10 +1,10 @@
 //login page
 'use client'
 import AuthButton from '@/Components/AuthButton'
+import Footer from '@/Components/Footer';
 import Navbar from '@/Components/Navbar';
 import Signin from '@/Components/Signin';
 import Signup from '@/Components/Signup';
-import { Input } from '@/Components/ui/input';
 import React, { useEffect, useState } from 'react'
 
 const page = () => {
@@ -12,7 +12,7 @@ const page = () => {
 
   return (
     <div>
-        <Navbar />
+      <Navbar />
       <main className='flex flex-col justify-center items-center h-screen'>
         <div className=''>
           <header className='mb-8 flex flex-col items-center'>
@@ -27,6 +27,7 @@ const page = () => {
           </section>
         </div>
       </main>
+      <Footer />
     </div>
   )
 }
