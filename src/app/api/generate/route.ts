@@ -7,8 +7,10 @@ const ai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
 export const POST = async (req: Request) => {
     try {
-        const { prompt } = await req.json();
+        let { prompt } = await req.json();
         const model = ai.getGenerativeModel({ model: "gemini-2.5-flash" });
+
+        
 
         const result = await model.generateContent(prompt)
         const response = result.response;

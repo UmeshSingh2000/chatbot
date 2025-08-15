@@ -17,7 +17,7 @@ const Page = () => {
     const router = useRouter()
     const [prompt, setPrompt] = useState<string>('')
     const [chats, setChats] = useState<Message[]>([])
-    const [responseLoading,setResponseLoading] = useState<boolean>(false)
+    const [responseLoading, setResponseLoading] = useState<boolean>(false)
 
     useEffect(() => {
         const token = getCookie('authToken')
@@ -45,15 +45,18 @@ const Page = () => {
     }
 
     return (
-        <div className="grid h-screen grid-cols-[260px_1fr] text-white bg-[#181818]">
-            {/* Sidebar */}
-            <aside className="bg-[#181818] p-4 flex flex-col border-r sticky top-0 border-gray-800">
-                <h2 className="text-xl font-bold mb-6">My Chat</h2>
-            </aside>
+        <div className="flex h-screen text-white bg-[#181818]">
+            {/* Sidebar - Made sticky */}
+            {/* <aside className="w-[350px] bg-[#181818] p-4 flex flex-col border-r border-gray-800 sticky top-0 h-screen overflow-y-auto">
+                <h2 className="text-xl font-bold mb-6">Chats</h2>
+            </aside> */}
 
             {/* Main Chat Area */}
-            <main className="flex flex-col bg-[#212121]">
+            <main className="flex-1 flex flex-col bg-[#212121] overflow-hidden">
                 {/* Chat Messages */}
+                <header className='bg-[#181818] p-4 sticky top-0 z-10'>
+                    <h2 className="text-lg font-bold">ChatBot</h2>
+                </header>
                 <div className="flex-1 overflow-y-auto p-6 flex flex-col space-y-4">
                     {chats.length === 0 ? (
                         <div className="flex justify-center items-center h-full">
@@ -63,20 +66,34 @@ const Page = () => {
                         chats.map((msg, index) => (
                             <div
                                 key={index}
-                                className={`p-3 rounded-2xl inline-block break-words shadow-md ${
-                                    msg.role === 'user'
-                                        ? 'bg-blue-600 text-white self-end ml-auto rounded-br-none'
-                                        : 'bg-gray-700 text-white self-start mr-auto rounded-bl-none'
-                                }`}
+                                className={`p-3 rounded-2xl inline-block break-words ${msg.role === 'user'
+                                    ? 'bg-[#303030] text-white self-end ml-auto rounded-full px-5'
+                                    : 'text-white self-start mr-auto rounded-bl-none'
+                                    }`}
                                 style={{ maxWidth: '70%' }}
                             >
                                 <Markdown>{msg.text}</Markdown>
+                                {
+                                    msg.role === 'ai' && (
+                                        <div className="flex gap-2 mt-2">
+                                            <button className="p-1 cursor-pointer rounded-full hover:bg-gray-600 transition">
+                                                👍
+                                            </button>
+                                            <button className="p-1 cursor-pointer rounded-full hover:bg-gray-600 transition">
+                                                👎
+                                            </button>
+                                            <button className="p-1 cursor-pointer rounded-full hover:bg-gray-600 transition">
+                                                📋
+                                            </button>
+                                        </div>
+                                    )
+                                }
                             </div>
                         ))
                     )}
                     {responseLoading && (
-                        <div className="p-3 rounded-2xl bg-gray-700 text-white self-start mr-auto">
-                            <Markdown>Generating response...</Markdown>
+                        <div className="p-3 rounded-2xl bg-gray-700 text-white self-start mr-auto ">
+                            <p className='animate-blink'>Generating response...</p>
                         </div>
                     )}
                 </div>
