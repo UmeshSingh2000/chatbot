@@ -1,11 +1,13 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Input } from './ui/input'
-import { Button } from './ui/button'
+
 import { Checkbox } from './ui/checkbox'
 import { Label } from './ui/label'
 import { signup } from '@/services/authService'
 import toast from 'react-hot-toast'
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+
 
 interface PropsTypes {
     onSuccess: (value: string) => void
